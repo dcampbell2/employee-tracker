@@ -18,7 +18,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <table class="table table-dark">
+        <table className="table table-dark">
           <thead>
             <tr>
               <th scope="col">#</th>
