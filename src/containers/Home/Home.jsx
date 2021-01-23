@@ -3,18 +3,22 @@ import API from "../../utils/API/API";
 
 class Home extends Component {
   state = {
-    name: "",
+    firstName: "",
+    lastName: "",
     image: "",
     email: "",
   };
 
-  // componentDidMount(){
-  //     API.getUsers().then((res) => {
-  //         console.log(res)
-  //     }).catch((err) => {
-  //         console.log(err)
-  //     })
-  // }
+  componentDidMount() {
+    API.getUsers()
+      .then((res) => {
+        this.setState({ firstName: res.data.results[0].name.first});
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   render() {
     return (
       <div className="container">
@@ -30,11 +34,9 @@ class Home extends Component {
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>{this.state.firstName}</td>
             </tr>
-            <tr>
+            {/* <tr>
               <th scope="row">2</th>
               <td>Jacob</td>
               <td>Thornton</td>
@@ -45,7 +47,7 @@ class Home extends Component {
               <td>Larry</td>
               <td>the Bird</td>
               <td>@twitter</td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
