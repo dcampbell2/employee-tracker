@@ -18,9 +18,13 @@ class Home extends Component {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Employee</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
               <th scope="col">Phone</th>
               <th scope="col">Email</th>
+              <th scope="col">City</th>
+              <th scope="col">State/Territory</th>
+              <th scope="col">Country</th>
             </tr>
           </thead>
           <tbody>
@@ -29,16 +33,15 @@ class Home extends Component {
                 <tr>
                   <th scope="row"></th>
                   <td key={results.login.username}>{results.name.first}</td>
+                  <td>{results.name.last}</td>
                   <td>{results.phone}</td>
+                  <td>{results.email}</td>
+                  <td>{results.location.city}</td>
+                  <td>{results.location.state}</td>
+                  <td>{results.location.country}</td>
                 </tr>
               );
             })}
-            {/* <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr> */}
           </tbody>
         </table>
       </div>
