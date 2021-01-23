@@ -24,20 +24,15 @@ class Home extends Component {
             </tr>
           </thead>
           <tbody>
-              {this.state.data.map((results) => {
-                  return(
-                    <tr>
-                    <th scope="row">1</th>
-                    <td key={results.login.username}>{results.name.first} {results.name.last}</td>
-                  </tr>
-                  )
-              })}
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
+            {this.state.data.map((results) => {
+              return (
+                <tr>
+                  <th scope="row"></th>
+                  <td key={results.login.username}>{results.name.first}</td>
+                  <td>{results.phone}</td>
+                </tr>
+              );
+            })}
             {/* <tr>
               <th scope="row">3</th>
               <td>Larry</td>
