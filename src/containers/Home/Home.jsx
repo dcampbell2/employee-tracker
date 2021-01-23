@@ -3,21 +3,13 @@ import API from "../../utils/API/API";
 
 class Home extends Component {
   state = {
-    firstName: "",
-    lastName: "",
-    image: "",
-    email: "",
+    data: [],
   };
 
   componentDidMount() {
     API.getUsers()
-      .then((res) => {
-        this.setState({ firstName: res.data.results[0].name.first});
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((res) => this.setState({ data: res.data.results }))
+      .catch((err) => console.log(err));
   }
   render() {
     return (
@@ -32,17 +24,21 @@ class Home extends Component {
             </tr>
           </thead>
           <tbody>
+              {this.state.data.map((results) => {
+                  return(
+                    <tr>
+                    <th scope="row">1</th>
+                    <td key={results.login.username}>{results.name.first} {results.name.last}</td>
+                  </tr>
+                  )
+              })}
             <tr>
-              <th scope="row">1</th>
-              <td>{this.state.firstName}</td>
-            </tr>
-            {/* <tr>
               <th scope="row">2</th>
               <td>Jacob</td>
               <td>Thornton</td>
               <td>@fat</td>
             </tr>
-            <tr>
+            {/* <tr>
               <th scope="row">3</th>
               <td>Larry</td>
               <td>the Bird</td>
