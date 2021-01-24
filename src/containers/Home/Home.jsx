@@ -11,31 +11,31 @@ class Home extends Component {
       .then((res) => this.setState({ data: res.data.results }))
       .catch((err) => console.log(err));
   }
-handleInputChange = event => {
-    const name = event.target.value
-    const value = event.target.value
-    const phoneFilter = this.state.data.filter(employee => {
-      return employee.phone.includes(value)
-    } )
+  handleInputChange = (event) => {
+    const name = event.target.value;
+    const value = event.target.value;
+    const phoneFilter = this.state.data.filter((employee) => {
+      return employee.phone.includes(value);
+    });
 
     this.setState({
       [name]: value,
-      data: phoneFilter
-    })
-}
+      data: phoneFilter,
+    });
+  };
   render() {
     return (
       <div className="container">
         <div className="jumbotron">
-          <h1 className="display-4">Hello, world!</h1>
+          <h1 className="display-4">Employee Directory</h1>
           <p className="lead">
-            This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information.
+            Welcome to the employee directory! Here you'll see a result of all
+            available employees along with their non-sensitive information.
           </p>
           <hr className="my-4" />
           <p>
-            It uses utility classes for typography and spacing to space content
-            out within the larger container.
+            Use the below text area to filter for a specifc employee by their
+            phone number.
           </p>
           <input
             type="text"
@@ -47,6 +47,7 @@ handleInputChange = event => {
         <table className="table table-dark">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Phone</th>
