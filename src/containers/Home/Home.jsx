@@ -11,6 +11,18 @@ class Home extends Component {
       .then((res) => this.setState({ data: res.data.results }))
       .catch((err) => console.log(err));
   }
+handleInputChange = event => {
+    const name = event.target.value
+    const value = event.target.value
+    const phoneFilter = this.state.data.filter(employee => {
+      return employee.phone.includes(value)
+    } )
+
+    this.setState({
+      [name]: value,
+      data: phoneFilter
+    })
+}
   render() {
     return (
       <div className="container">
@@ -27,14 +39,14 @@ class Home extends Component {
           </p>
           <input
             type="text"
-            className="form-control text-right"
+            className="form-control"
             id="searchBox"
+            onChange={this.handleInputChange}
           />
         </div>
         <table className="table table-dark">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Phone</th>
