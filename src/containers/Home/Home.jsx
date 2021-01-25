@@ -47,7 +47,7 @@ class Home extends Component {
         <table className="table table-dark">
           <thead>
             <tr>
-              <th scope="col"></th>
+              <th scope="col">Picture</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Phone</th>
@@ -60,9 +60,9 @@ class Home extends Component {
           <tbody>
             {this.state.data.map((results) => {
               return (
-                <tr>
-                  <th scope="row"></th>
-                  <td key={results.login.username}>{results.name.first}</td>
+                <tr key={results.login.username}>
+                  <th scope="row"><img src={results.picture.thumbnail}/></th>
+                  <td>{results.name.first}</td>
                   <td>{results.name.last}</td>
                   <td>{results.phone}</td>
                   <td>{results.email}</td>
